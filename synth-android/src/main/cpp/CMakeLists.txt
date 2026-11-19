@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(infinisynth C)
+add_library(infinisynth SHARED chips_jni.c cms.c third_party/opl3.c)
+target_compile_features(infinisynth PRIVATE c_std_11)
+target_link_libraries(infinisynth m)
+target_link_options(infinisynth PRIVATE "-Wl,-z,max-page-size=16384")
